@@ -17,3 +17,9 @@ a {
 li {
   list-style: none;
 }
+
+.ant-pagination {
+  text-align: center;
+  padding: 12px 0;
+  margin-top: 16px;
+}

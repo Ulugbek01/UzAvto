@@ -5,7 +5,7 @@ import sidebar from '../utils/sidebar'
 
 const Root = () => {
   return (
-    <div>
+    <div style={{display: 'flex'}}>
         <Sidebar/>
         <Routes>
             {sidebar.map(({id, path, Element}) => 

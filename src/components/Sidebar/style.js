@@ -5,15 +5,16 @@ export const Container = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 340px;
+    min-height: 100vh;
     background: #FCFCFC;
     padding: 24px;
+    border: 1px solid blue;
 
     .nav-link {
         display: flex;
         align-items: center;
         padding: 12px;
         margin-bottom: 8px;
-        border: 1px solid red;
     }
 
     .title {
