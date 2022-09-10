@@ -4,11 +4,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 340px;
+    max-width: 240px;
     min-height: 100vh;
     background: #FCFCFC;
     padding: 24px;
-    border: 1px solid blue;
 
     .nav-link {
         display: flex;

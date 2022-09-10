@@ -20,6 +20,10 @@ export const Container = styled.div`
             letter-spacing: -0.01em;
             color: #1A1D1F;
         }
+
+        .delete {
+            cursor: pointer;
+        }
     }
 `;
 
@@ -66,3 +70,4 @@ export const Label = styled.span`
     border-radius: 4px;
     margin-right: 16px;
 `;
+
