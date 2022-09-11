@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    padding: 40px;
-
+    padding: 20px;
 
     .table {
         border-collapse: collapse;
@@ -40,12 +39,10 @@ export const AddBtn = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 192px;
-    height: 48px;
     background: #2A85FF;
     font-family: 'Inter', sans-serif;
     border-radius: 12px;
-    padding: 12px 20px;
+    padding: 10px 16px;
     font-size: 14px;
     cursor: pointer;
     border: none;

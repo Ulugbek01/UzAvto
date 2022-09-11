@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { Container } from './style';
 
 const AddCar = () => {
   const navigate = useNavigate();
+  const [carInfo, setCarInfo] = useState({
+    imgUrl: '',
+    imgUrlInside: '',
+    imgUrlAutside: '',
+    price: '',
+    year: '',
+    description: '',
+    tonirovka: '',
+    motor: '',
+    color: '',
+    distance: '',
+    gearbok: '',
+    categoryId: '',
+  });
+
+  const onChange = (e)=> {
+    setCarInfo({...carInfo, [e.target.name]: e.target.value});
+  }
 
   const { mutate } = useMutation(()=> {
     return fetch('https://cartestwebapp.herokuapp.com/car', {
@@ -44,6 +62,8 @@ const AddCar = () => {
       onError: ((err) => console.log(err))
     })
   }
+
+  console.log(carInfo);
   
   return (
     <Container>
@@ -51,27 +71,27 @@ const AddCar = () => {
       <div className='form-control'>
         <div>
           <label htmlFor="motor">Motor</label>
-          <input type="text" placeholder='Kiriting' name='motor' id='motor'/>
+          <input onChange={onChange} type="text" placeholder='Kiriting' name='motor' id='motor'/>
           <label htmlFor="color">Color</label>
-          <input type="text" placeholder='Kiriting' name='color' id='color'/>
-          <label htmlFor="gearbook">Gearbook</label>
-          <input type="text" placeholder='Kiriting' name='gearbook' id='gearbook'/>
+          <input onChange={onChange} type="text" placeholder='Kiriting' name='color' id='color'/>
+          <label htmlFor="gearbok">Gearbok</label>
+          <input onChange={onChange} type="text" placeholder='Kiriting' name='gearbok' id='gearbok'/>
           <label htmlFor="interImg">Rasm 360 ichki makon</label>
-          <input type={'file'} placeholder='Kiriting' name='interImg' id='interImg'/>
+          <input onChange={onChange} type={'file'} placeholder='Kiriting' name='interImg' id='interImg'/>
           <label htmlFor="deseription">Deseription</label>
-          <input type="text" placeholder='Kiriting' name='deseription' id='deseription'/>
+          <input onChange={onChange} type="text" placeholder='Kiriting' name='deseription' id='deseription'/>
         </div>
         <div>
-          <label htmlFor="tanirovka">Tanirovkasi</label>
-          <input type="text" placeholder='Kiriting' name='tanirovka' id='tanirovka'/>
+          <label htmlFor="tonirovka">Tanirovkasi</label>
+          <input onChange={onChange} type="text" placeholder='Kiriting' name='tonirovka' id='tonirovka'/>
           <label htmlFor="year">Year</label>
-          <input type="text" placeholder='Kiriting' name='year' id='year'/>
+          <input onChange={onChange} type="text" placeholder='Kiriting' name='year' id='year'/>
           <label htmlFor="distance">Distance</label>
-          <input type="text" placeholder='Kiriting' name='distance' id='distance'/>
-          <label htmlFor="narxi">Narxi</label>
-          <input type='text' placeholder='Kiriting' name='narxi' id='narxi'/>
+          <input onChange={onChange} type="text" placeholder='Kiriting' name='distance' id='distance'/>
+          <label htmlFor="price">Narxi</label>
+          <input onChange={onChange} type='text' placeholder='Kiriting' name='price' id='price'/>
           <label htmlFor="modelImg">Modeli turi uchun rasm</label>
-          <input type={'file'} placeholder='Kiriting' name='modelImg' id='modelImg'/>
+          <input onChange={onChange} type={'file'} placeholder='Kiriting' name='modelImg' id='modelImg'/>
         </div>
       </div>
 
