@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import AddNewCar from '../components/AddCar';
+import CarInfo from '../components/CarInfo';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar'
 import SignIn from '../components/SignIn';
@@ -21,6 +22,7 @@ const Root = () => {
                   <Route key={id} path={path} element={Element}/>
               )}
               <Route path='/addcar' element={<AddNewCar/>}/>
+              <Route path='/asosiy/:id' element={<CarInfo/>}/>
               <Route path='/signin' element={<SignIn/>}/>
           </Routes>
         </div>

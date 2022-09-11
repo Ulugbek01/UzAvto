@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import { Pagination } from 'antd';
+import { AddBtn, AddWrapper, Container, Label } from './style';
 import {ReactComponent as Plus} from '../../assets/icons/plus.svg';
 import {ReactComponent as Delete} from '../../assets/icons/delete.svg';
-import { AddBtn, AddWrapper, Container, Label } from './style';
+import {ReactComponent as ArrowRight} from '../../assets/icons/arrow-right.svg';
 
 
 const Home = () => {
   const navigate = useNavigate();
   const [cars, setCars] = useState([]);
-  const [current, setCurrent] = useState(2);
+  const [current, setCurrent] = useState(1);
 
   const onChange = (page) => {
     setCurrent(page);
@@ -28,7 +29,7 @@ const Home = () => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzE4MzZmY2UxNzFkZTZjNWM5NjE4NzMiLCJwaG9uZU51bWJlciI6Iis5OTg5OTM0NjY3ODgiLCJpYXQiOjE2NjI1NzQ3NTgsImV4cCI6MTY2MzE3OTU1OH0.EPtYR-1mSY13c4ZHCNfa1x_RM3BvyGvuqzYRuRVofXU'  
+        Authorization: `Bearer ${localStorage.getItem('token')}` 
       }
     })
   })
@@ -39,7 +40,6 @@ const Home = () => {
       onError: (err) => console.log(err),
     })
   }
-
 
   return (
     <Container>
@@ -73,7 +73,7 @@ const Home = () => {
               <td>{car.year}</td>
               <td>{car.color}</td>
               <td>{car.distance}</td>
-              <td onClick={()=> onDelete(car._id)} className='delete'><Delete/></td>
+              <td className='flex-box'><Delete onClick={()=> onDelete(car._id)} className='delete'/> <ArrowRight onClick={()=> navigate(`/asosiy/:${car._id}`)} className='arrow-btn'/></td>
             </tr>
           )}
         </tbody>

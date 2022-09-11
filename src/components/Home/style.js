@@ -22,6 +22,22 @@ export const Container = styled.div`
 
         .delete {
             cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .arrow-btn:hover {
+            animation: 0.37s alternate anim infinite;
+            cursor: pointer;
+        }
+
+        @keyframes anim {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(4px);
+            }
         }
     }
 `;

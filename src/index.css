@@ -18,6 +18,23 @@ li {
   list-style: none;
 }
 
+.flex-box {
+  display: flex;
+  align-items: center;
+}
+
+.to-center {
+  text-align: center;
+}
+
+.mt {
+  margin-top: 10px;
+}
+
+.mxt {
+  margin-top: 20px;
+}
+
 .ant-pagination {
   text-align: center;
   padding: 12px 0;
