@@ -29,21 +29,21 @@ const AddCar = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzE4MzZmY2UxNzFkZTZjNWM5NjE4NzMiLCJwaG9uZU51bWJlciI6Iis5OTg5OTM0NjY3ODgiLCJpYXQiOjE2NjI1NzQ3NTgsImV4cCI6MTY2MzE3OTU1OH0.EPtYR-1mSY13c4ZHCNfa1x_RM3BvyGvuqzYRuRVofXU`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       },
       body: JSON.stringify({
-        imgUrl: "img-a463268af6f271bc3adac0871d505b4a.jpg",
-        imgUrlInside: "img-db607b3fdb99095051f37c849887ace7.jpg",
-        imgUrlAutside: "img-a463268af6f271bc3adac0871d505b4a.jpg",
-        price: 222000000,
-        year: 2021,
-        description: "ideal",
-        tonirovka: "bor",
-        motor: 1.6,
-        color: 'qora',
-        distance: 18901,
-        gearbok: 'avtomat',
-        categoryId: '23180c53d0953487569045c7'
+        imgUrl:"img-a463268af6f271bc3adac0871d505b4a.jpg",
+        imgUrlInside:"img-db607b3fdb99095051f37c849887ace7.jpg",
+        imgUrlAutside:"img-a463268af6f271bc3adac0871d505b4a.jpg",
+        price:122000000,
+        year:2020,
+        description:"avtomobil holati yaxshi",
+        tonirovka:" oldi orqa qilingan",
+        motor:"holati yaxshi ",
+        color:"rangi oq zavatiskoy",
+        distance:"11000",
+        gearbok:"avtomat",
+        categoryId:"63180c53d0953487569045c7"
       })
     })
   });
@@ -61,10 +61,7 @@ const AddCar = () => {
       }),
       onError: ((err) => console.log(err))
     })
-  }
-
-  console.log(carInfo);
-  
+  }  
   return (
     <Container>
       <h2>Mashina Qo'shish</h2>

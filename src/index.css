@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 * {
@@ -31,8 +32,8 @@ li {
   margin-top: 10px;
 }
 
-.mxt {
-  margin-top: 20px;
+.mr {
+  margin-right: 10px;
 }
 
 .ant-pagination {

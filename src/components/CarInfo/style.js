@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    padding: 20px;
+    padding: 40px 94px;
 
     .car-info__wrapper {
         display: flex;
@@ -17,6 +17,14 @@ export const Container = styled.div`
         }
     }
 
+    .title {
+        font-family: 'Noto Sans';
+        font-weight: 600;
+        font-size: 42px;
+        line-height: 48px;
+        color: #000000;
+    }
+
     .selected-btns {
         justify-content: space-evenly;
 
@@ -29,5 +37,9 @@ export const Container = styled.div`
 
     .full-car__img {
         padding: 0 30px;
+    }
+
+    .home-fill {
+        cursor: pointer;
     }
 `;

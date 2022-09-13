@@ -12,6 +12,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [cars, setCars] = useState([]);
   const [current, setCurrent] = useState(1);
+  const [id, setId] = useState(null);
 
   const onChange = (page) => {
     setCurrent(page);
@@ -22,28 +23,25 @@ const Home = () => {
     .then((res) => res.json())
     .then((res) => setCars(res.data?.data));
   },
-  [current])
+  [current, id])
 
   const { mutate } = useMutation((id) => {
     return fetch(`https://cartestwebapp.herokuapp.com/car/${id}`, {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}` 
       }
     })
   })
 
   const onDelete = (id) => {
-    mutate(id, {
-      onSuccess: (res) => console.log(res),
-      onError: (err) => console.log(err),
-    })
+    setId(id);
+    mutate(id, {})
   }
 
   return (
     <Container>
-      <AddWrapper>
+     <AddWrapper>
         <h2><Label/>Mashinalar</h2>
         <AddBtn onClick={() => navigate('/addcar')}><Plus className='add-icon'/>Mashina qo'shish</AddBtn>
       </AddWrapper>
@@ -73,7 +71,7 @@ const Home = () => {
               <td>{car.year}</td>
               <td>{car.color}</td>
               <td>{car.distance}</td>
-              <td className='flex-box'><Delete onClick={()=> onDelete(car._id)} className='delete'/> <ArrowRight onClick={()=> navigate(`/asosiy/:${car._id}`)} className='arrow-btn'/></td>
+              <td className='flex-box'><Delete onClick={()=> onDelete(car._id)} className='delete'/><ArrowRight onClick={()=> navigate(`/asosiy/:${car._id}`)} className='arrow-btn'/></td>
             </tr>
           )}
         </tbody>

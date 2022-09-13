@@ -22,7 +22,11 @@ export const Container = styled.div`
 
         .delete {
             cursor: pointer;
-            margin-right: 10px;
+            margin-right: 20px;
+        }
+
+        .edit {
+            cursor: pointer;
         }
 
         .arrow-btn:hover {

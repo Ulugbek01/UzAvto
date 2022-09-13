@@ -1,14 +1,15 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import React,{useEffect, useState} from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { Pannellum } from 'pannellum-react';
 import { Container } from './style';
+import { ReactComponent as HomeFill } from '../../assets/icons/home-fill.svg';
 import carImg1 from '../../assets/img/car-img1.png'
 import tashqi from '../../assets/img/tashqi.png'
 import ichki from '../../assets/img/ichki.png'
 
 const CarInfo = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [carInfo, setCarInfo] = useState({});
   const [select, setSelect] = useState('tashqi');
   
@@ -18,12 +19,10 @@ const CarInfo = () => {
     .then((res) => setCarInfo(res.data))
   }, [id])
 
-  console.log(carInfo);
-
-
   return (
     <Container>
-      <h2>Moddellari</h2>
+      <p>Bosh sahifa {'>'} Modellar {'>'} {carInfo?.marka?.name} turlari</p>
+      <h2 className='title'>Moddellari</h2>
       <div className='car-info__wrapper'>
         <div className='car-info'>
           <h2>{carInfo.marka?.name}</h2>
@@ -40,18 +39,42 @@ const CarInfo = () => {
           <p style={{marginTop: '10px'}}><b>Jami: </b>{carInfo.price} so'm dan</p>
         </div>
         <div className='full-car__img'>
-          <h2>Chevrolet Malibu</h2>
-          <img width='100%' src={select === 'tashqi' ? tashqi : ichki} alt="car-img" />
+          <div className='flex-box' style={{justifyContent: 'space-between'}}>
+            <h2>{carInfo.marka?.name}</h2>
+            <div><HomeFill className='home-fill' onClick={()=> navigate('/')}/></div>
+          </div>
+          <Pannellum
+            width="100%"
+            height="500px"
+            image={ichki}
+            pitch={10}
+            yaw={180}
+            hfov={110}
+            autoLoad
+            showZoomCtrl={false}
+            onLoad={() => {
+              console.log("panorama loaded");
+            }}
+          >
+            <Pannellum.Hotspot
+              type="custom"
+              pitch={31}
+              yaw={150}
+              handleClick={(evt, name) => console.log(name)}
+              name="hs1"
+            />
+          </Pannellum>
+          {/* <img width='100%' src={select === 'tashqi' ? tashqi : ichki} alt="car-img" /> */}
             <p className='to-center mt'>Tasvir tanlangan konfiguratsiyaga mos kelmasligi mumkin. Mashinaning rangi ushbu saytda taqdim etilganidan farq qilishi mumkin.</p>
           
           <div className='flex-box selected-btns'>
             <div className='flex-box'>
               <label htmlFor="tashqi">Tashqi makon</label>
-              <input onClick={()=> setSelect('tashqi')} type={'radio'} name="img" id='tashqi'/>
+              <input value={'tashqi'} onClick={()=> setSelect('tashqi')} type={'radio'} name="img" id='tashqi'/>
             </div>
             <div className='flex-box'>
               <label htmlFor="ichki">Ichki makon</label>
-              <input onClick={()=> setSelect('ichki')} type={'radio'} name="img" id='ichki'/>
+              <input value={'ichki'} onClick={()=> setSelect('ichki')} type={'radio'} name="img" id='ichki'/>
             </div>
             </div>
         </div>
