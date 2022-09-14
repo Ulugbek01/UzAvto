@@ -41,8 +41,8 @@ const Home = () => {
 
   return (
     <Container>
-     <AddWrapper>
-        <h2><Label/>Mashinalar</h2>
+      <AddWrapper>
+        <h2><Label onClick={() => navigate('/')} className="c-pointer"/>Mashinalar</h2>
         <AddBtn onClick={() => navigate('/addcar')}><Plus className='add-icon'/>Mashina qo'shish</AddBtn>
       </AddWrapper>
       <table width={'100%'} className='table'>

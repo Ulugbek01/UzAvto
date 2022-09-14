@@ -10,9 +10,9 @@ const Sidebar = () => {
         const {icon: Icon} = item;
         return (
           <NavLink className={'nav-link'} key={item.id} to={item.path}>{<Icon/>}<span className='title'>{item.title}</span></NavLink>
-        )
-      } 
-      )}
+          )
+        } 
+        )}
     </Container>
   )
 }

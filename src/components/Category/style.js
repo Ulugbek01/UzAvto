@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    padding: 82px 94px;
+    padding: 42px 94px;
 
     .car-title {
         font-family: 'Noto Sans';
@@ -41,5 +41,21 @@ export const Container = styled.div`
         & span {
             color: rgba(0, 0, 0, 0.8);
         }
+    }
+
+    & .login {
+        display: block;
+        margin-left: auto;
+        margin-bottom: 20px;
+        padding: 10px 30px;
+        background: #2A85FF;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    & .login:active {
+        transform: scale(0.98);
     }
 `;

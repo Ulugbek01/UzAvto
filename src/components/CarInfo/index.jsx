@@ -19,10 +19,16 @@ const CarInfo = () => {
     .then((res) => setCarInfo(res.data))
   }, [id])
 
+  const signIn = () => {
+    navigate(`${localStorage.getItem('token') ? '/' : '/signin'}`)
+    localStorage.removeItem('token');
+  }
+
   return (
     <Container>
-      <p>Bosh sahifa {'>'} Modellar {'>'} {carInfo?.marka?.name} turlari</p>
-      <h2 className='title'>Moddellari</h2>
+      <button className='login' onClick={signIn}>{localStorage.getItem('token') ? 'Chiqish' : 'Kirish'}</button>
+      <p><span className='c-pointer' onClick={() => navigate('/')}>Bosh sahifa</span> {'>'} <span onClick={() => navigate(-1)} className="c-pointer">Modellar</span> {'>'} {carInfo?.marka?.name} turlari</p>
+      <h2 className='title  '>Moddellari</h2>
       <div className='car-info__wrapper'>
         <div className='car-info'>
           <h2>{carInfo.marka?.name}</h2>
@@ -45,26 +51,16 @@ const CarInfo = () => {
           </div>
           <Pannellum
             width="100%"
-            height="500px"
-            image={ichki}
+            height="420px"
+            image={select === 'tashqi' ? tashqi : ichki}
             pitch={10}
             yaw={180}
-            hfov={110}
+            hfov={500}
+            autoRotate={6}
             autoLoad
             showZoomCtrl={false}
-            onLoad={() => {
-              console.log("panorama loaded");
-            }}
           >
-            <Pannellum.Hotspot
-              type="custom"
-              pitch={31}
-              yaw={150}
-              handleClick={(evt, name) => console.log(name)}
-              name="hs1"
-            />
           </Pannellum>
-          {/* <img width='100%' src={select === 'tashqi' ? tashqi : ichki} alt="car-img" /> */}
             <p className='to-center mt'>Tasvir tanlangan konfiguratsiyaga mos kelmasligi mumkin. Mashinaning rangi ushbu saytda taqdim etilganidan farq qilishi mumkin.</p>
           
           <div className='flex-box selected-btns'>

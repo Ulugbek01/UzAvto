@@ -6,18 +6,18 @@ import { Container } from './style';
 const AddCar = () => {
   const navigate = useNavigate();
   const [carInfo, setCarInfo] = useState({
-    imgUrl: '',
-    imgUrlInside: '',
-    imgUrlAutside: '',
-    price: '',
+    imgUrl:"",
+    imgUrlInside:"",
+    imgUrlAutside: "",
+    price:'',
     year: '',
-    description: '',
-    tonirovka: '',
-    motor: '',
-    color: '',
-    distance: '',
-    gearbok: '',
-    categoryId: '',
+    description:"",
+    tonirovka:"",
+    motor:"",
+    color: "",
+    distance: "",
+    gearbok:"",
+    categoryId:""
   });
 
   const onChange = (e)=> {
@@ -35,15 +35,15 @@ const AddCar = () => {
         imgUrl:"img-a463268af6f271bc3adac0871d505b4a.jpg",
         imgUrlInside:"img-db607b3fdb99095051f37c849887ace7.jpg",
         imgUrlAutside:"img-a463268af6f271bc3adac0871d505b4a.jpg",
-        price:122000000,
-        year:2020,
-        description:"avtomobil holati yaxshi",
-        tonirovka:" oldi orqa qilingan",
-        motor:"holati yaxshi ",
+        price:2020000,
+        year:2022,
+        description:"avtomobil yangi",
+        tonirovka: "bor",
+        motor:"yap-yangi",
         color:"rangi oq zavatiskoy",
-        distance:"11000",
+        distance:"112000",
         gearbok:"avtomat",
-        categoryId:"63180c53d0953487569045c7"
+        categoryId:"631819ae7ff943f201d4ca71"
       })
     })
   });
@@ -64,7 +64,10 @@ const AddCar = () => {
   }  
   return (
     <Container>
-      <h2>Mashina Qo'shish</h2>
+      <div className='flex-box' style={{justifyContent: 'space-between'}}>
+        <h2>Mashina Qo'shish</h2>
+        <button className='go-back' onClick={()=> navigate(-1)}>Asosiyga qaytish</button>
+        </div>
       <div className='form-control'>
         <div>
           <label htmlFor="motor">Motor</label>
@@ -75,8 +78,8 @@ const AddCar = () => {
           <input onChange={onChange} type="text" placeholder='Kiriting' name='gearbok' id='gearbok'/>
           <label htmlFor="interImg">Rasm 360 ichki makon</label>
           <input onChange={onChange} type={'file'} placeholder='Kiriting' name='interImg' id='interImg'/>
-          <label htmlFor="deseription">Deseription</label>
-          <input onChange={onChange} type="text" placeholder='Kiriting' name='deseription' id='deseription'/>
+          <label htmlFor="description">Deseription</label>
+          <input onChange={onChange} type="text" placeholder='Kiriting' name='description' id='deseription'/>
         </div>
         <div>
           <label htmlFor="tonirovka">Tanirovkasi</label>

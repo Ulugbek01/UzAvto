@@ -13,9 +13,11 @@ const Main = () => {
       .then((res) => setCategories(res.data?.data))
   }, [])
 
+  console.log(categories);
+
   return (
     <Container>
-      <button className='login' onClick={() => navigate('signin')}>Kirish</button>
+      <button className='login' onClick={() => navigate('/signin')}>Kirish</button>
       <p>Bosh sahifa {'>'} modellari</p>
       <h1 className='title'>Modellari</h1>
       <CarsWrapper>

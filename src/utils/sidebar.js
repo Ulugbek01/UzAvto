@@ -10,7 +10,7 @@ export const sidebar = [
         id: 1,
         title: 'Asosiy',
         icon: main,
-        path: '/asosiy',
+        path: '/',
         Element: <HomePage/>,
         private: false
     },

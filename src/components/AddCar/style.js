@@ -47,4 +47,19 @@ export const Container = styled.div`
         outline: none;
         color: #fff;
     }
+
+    & .go-back {
+        display: block;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background: #2A85FF;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    & .go-back:active {
+        transform: scale(0.98);
+    }
 `;

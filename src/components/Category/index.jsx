@@ -9,7 +9,7 @@ const Category = () => {
   const [cars, setCars] = useState([])
   const {pathname} = useLocation();
   let id = pathname.slice(11);
-  console.log(param);
+  // console.log(param);
 
   useEffect(() => {
     fetch(`https://cartestwebapp.herokuapp.com/car?limit=5&page=1&categoryId=${id}`)
@@ -19,12 +19,13 @@ const Category = () => {
 
   return (
     <Container>
-      <p>Bosh sahifa {'>'} Modellari {'>'} {cars?.length  > 0 ? cars[0]?.marka?.name+' turlari' : ''}</p>
+      <button className='login' onClick={() => navigate('/signin')}>Kirish</button>
+      <p>Bosh sahifa {'>'} Modellari {'>'} {cars?.length  > 0 ? cars[0].marka?.name+' turlari' : ''}</p>
       <div className='cars-wrapper'>
         {cars.map((car) => 
           <div key={car._id} className="to-center car-item" onClick={() => navigate(`/model/:${car._id}`)}>
             <img src={car.imgUrl && chevrolet} alt="car-img" />
-            <h3 className='car-title'>{car.marka.name}</h3>
+            <h3 className='car-title'>{car.marka?.name}</h3>
             <p className='price'><span>Narxi</span>: {car.price}</p>
           </div>
         )}

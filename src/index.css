@@ -36,6 +36,10 @@ li {
   margin-right: 10px;
 }
 
+.c-pointer {
+  cursor: pointer;
+}
+
 .ant-pagination {
   text-align: center;
   padding: 12px 0;

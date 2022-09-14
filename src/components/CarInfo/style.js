@@ -42,4 +42,20 @@ export const Container = styled.div`
     .home-fill {
         cursor: pointer;
     }
+
+    & .login {
+        display: block;
+        margin-left: auto;
+        margin-bottom: 20px;
+        padding: 10px 30px;
+        background: #2A85FF;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    & .login:active {
+        transform: scale(0.98);
+    }
 `;
