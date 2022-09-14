@@ -3,9 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Pannellum } from 'pannellum-react';
 import { Container } from './style';
 import { ReactComponent as HomeFill } from '../../assets/icons/home-fill.svg';
-import carImg1 from '../../assets/img/car-img1.png'
-import tashqi from '../../assets/img/tashqi.png'
-import ichki from '../../assets/img/ichki.png'
 
 const CarInfo = () => {
   const { id } = useParams();
@@ -24,6 +21,8 @@ const CarInfo = () => {
     localStorage.removeItem('token');
   }
 
+  console.log(carInfo);
+
   return (
     <Container>
       <button className='login' onClick={signIn}>{localStorage.getItem('token') ? 'Chiqish' : 'Kirish'}</button>
@@ -33,7 +32,7 @@ const CarInfo = () => {
         <div className='car-info'>
           <h2>{carInfo.marka?.name}</h2>
           <p>{carInfo.price} so'm dan</p>
-          <img src={carInfo.imgUrl && carImg1} alt="car-img" />
+          <img className='car-left__img' src={`https://cartestwebapp.herokuapp.com/${carInfo.imgUrl}`} alt="car-img" />
           <p><b>Marka: </b>{carInfo.marka?.name}</p>
           <p><b>Tanirovkasi: </b>{carInfo.tonirovka}</p>
           <p><b>Motor: </b>{carInfo.motor}</p>
@@ -52,7 +51,7 @@ const CarInfo = () => {
           <Pannellum
             width="100%"
             height="420px"
-            image={select === 'tashqi' ? tashqi : ichki}
+            image={select === 'tashqi' ? `https://cartestwebapp.herokuapp.com/${carInfo?.imgUrlAutside}` : `https://cartestwebapp.herokuapp.com/${carInfo?.imgUrlInside}`}
             pitch={10}
             yaw={180}
             hfov={500}

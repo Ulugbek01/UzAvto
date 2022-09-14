@@ -17,12 +17,19 @@ export const Container = styled.div`
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        gap: 10px;
 
         & .car-item {
-            width: 289px;
+            width: 282px;
             height: 268px;
             cursor: pointer;
             transition: all 0.31s linear;
+
+            & img {
+                width: 282px;
+                height: 268px;
+                object-fit: cover;
+            }
         }
 
         & .car-item:hover {

@@ -9,6 +9,12 @@ export const Container = styled.div`
         .car-info {
             max-width: 350px;
             width: 100%;
+
+            & .car-left__img {
+                width: 348px;
+                height: 160px;
+                margin: 16px 0;
+            }
         }
 
         .car-info p{
