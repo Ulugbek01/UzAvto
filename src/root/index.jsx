@@ -5,11 +5,7 @@ import CarInfo from '../components/CarInfo';
 import Category from '../components/Category';
 import Home from '../components/Home';
 import Main from '../components/Main';
-import Sidebar from '../components/Sidebar';
 import SignIn from '../components/SignIn';
-import PosterPage from '../pages/Poster';
-import QuestionPage from '../pages/Question';
-import sidebar from '../utils/sidebar'
 
 const Root = () => {
   return (
