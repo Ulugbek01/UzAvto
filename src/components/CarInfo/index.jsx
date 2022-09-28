@@ -13,7 +13,7 @@ const CarInfo = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [carInfo, setCarInfo] = useState({});
-  const [select, setSelect] = useState('tashqi');
+  const [select, setSelect] = useState('ichki');
   
   useEffect(() => {
     fetch(`${url}/car/${id.replace(':', '')}`)
