@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Container } from './style';
 
+const {REACT_APP_BASE_URL: url} = process.env;
 const Category = () => {
   const param = useParams();
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ const Category = () => {
       .then((res) => setCars(res.data?.data))
   }, [id])
 
+  console.log(cars);
+  console.log(url);
   return (
     <Container>
       <button className='login' onClick={() => navigate('/signin')}>Kirish</button>
@@ -23,7 +26,7 @@ const Category = () => {
       <div className='cars-wrapper'>
         {cars.map((car) => 
           <div key={car._id} className="to-center car-item" onClick={() => navigate(`/model/:${car._id}`)}>
-            <img src={`https://cartestwebapp.herokuapp.com/${car.imgUrl}`} alt="car-img" />
+            <img src={`${url}/${car.imgUrl}`} alt="car-img" />
             <h3 className='car-title'>{car.marka?.name}</h3>
             <p className='price'><span>Narxi</span>: {car.price}</p>
           </div>

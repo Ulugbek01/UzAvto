@@ -3,6 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Pannellum } from 'pannellum-react';
 import { Container } from './style';
 import { ReactComponent as HomeFill } from '../../assets/icons/home-fill.svg';
+import chevrolet from '../../assets/img/chevrolet.png'
+import ichki from '../../assets/img/ichki.png';
+import tashqi from '../../assets/img/tashqi.png';
+
+const {REACT_APP_BASE_URL: url} = process.env;
 
 const CarInfo = () => {
   const { id } = useParams();
@@ -11,7 +16,7 @@ const CarInfo = () => {
   const [select, setSelect] = useState('tashqi');
   
   useEffect(() => {
-    fetch(`https://cartestwebapp.herokuapp.com/car/${id.replace(':', '')}`)
+    fetch(`${url}/car/${id.replace(':', '')}`)
     .then((res) => res.json())
     .then((res) => setCarInfo(res.data))
   }, [id])
@@ -32,7 +37,7 @@ const CarInfo = () => {
         <div className='car-info'>
           <h2>{carInfo.marka?.name}</h2>
           <p>{carInfo.price} so'm dan</p>
-          <img className='car-left__img' src={`https://cartestwebapp.herokuapp.com/${carInfo.imgUrl}`} alt="car-img" />
+          <img className='car-left__img' src={`${url}/${carInfo.imgUrl}`} alt="car-img" />
           <p><b>Marka: </b>{carInfo.marka?.name}</p>
           <p><b>Tanirovkasi: </b>{carInfo.tonirovka}</p>
           <p><b>Motor: </b>{carInfo.motor}</p>
